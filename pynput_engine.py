@@ -119,6 +119,7 @@ class Keyboard:
 
     def on_press(self, key, func):
         key = str(key)
+        print(key)
         self.press_actions[key] = func
 
     def on_release(self, key, func):
@@ -132,8 +133,8 @@ class Keyboard:
         try:
             if key in Keyboard.press_actions:
                 Keyboard.press_actions[key]()
-        except KeyError:
-            pass
+        except Exception as e:
+            print("error: ", e)
 
     @staticmethod
     def _on_release(key):
@@ -142,11 +143,12 @@ class Keyboard:
         try:
             if key in Keyboard.press_actions:
                 Keyboard.press_actions[key]()
-        except KeyError:
-            pass
+        except Exception as e:
+            print("error: ", e)
 
     @staticmethod
     def _quit():
+        print("quitting")
         _thread.interrupt_main()
 
 

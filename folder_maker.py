@@ -15,7 +15,7 @@ leave_info = (1345, 233)
 depth = 3
 cols = 4
 rows = 10
-folders_per_layer = 5
+folders_per_layer = 2
 x_positions = [373, 639, 886, 1136]
 y_positions = [277, 341, 397, 473, 537, 593, 669, 717, 776, 852]
 
@@ -23,7 +23,8 @@ y_positions = [277, 341, 397, 473, 537, 593, 669, 717, 776, 852]
 def create_folder():
     sleep(1)
     click(*new_button, 3)
-    sleep(3)
+    sleep(.5)
+    mouse.click(3)
     click(*create)
     sleep(1)
     # click(*create_leave)
@@ -70,6 +71,4 @@ def click(x, y, amount=1):
 
 if __name__ == '__main__':
     sleep(3)
-    # stuff(depth)
-    for i in range(10):
-        create_folder()
+    stuff(depth)
